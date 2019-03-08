@@ -32,6 +32,11 @@
                                     Почта: {{email}}
                                 </p>
                             </div>
+                            <div class="field">
+                                <p>
+                                    <router-link to="/orders">История заказов.</router-link>
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </article>
@@ -45,7 +50,6 @@ export default {
     name: 'Profile',
     data() {
         return {
-            auth: 'https://dev.cyxapic.ru/auth/',
             title: 'Ваш профиль:',
             userName: '',
             email: '',
@@ -57,7 +61,7 @@ export default {
     },
     created() {
         const token = localStorage.getItem('user');
-        fetch(`${this.auth}user/`, {
+        fetch(`${this.$auth}user/`, {
             method: 'GET',
             headers: {'Authorization': `Token ${token}`},
         }).then(
@@ -83,15 +87,15 @@ export default {
             this.editFirstNameFlag = false;
             this.update({'first_name': this.firstName});
         },
-        update(data) {
+        update(userData) {
             const token = localStorage.getItem('user');
-            fetch(`${this.auth}user/`, {
+            fetch(`${this.$auth}user/`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Token ${token}`
                 },
-                body: JSON.stringify(data),
+                body: JSON.stringify(userData),
             }).then(
                 resp => resp.json().then(data => {
                     this.userDataParse(data);

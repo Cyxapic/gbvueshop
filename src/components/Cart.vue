@@ -5,8 +5,11 @@
             <div class="level-left">
                 Всего на сумму: <strong>{{totalPrice}}</strong>
             </div>
-            <div class="level-right">
-                <router-link v-if="$root.$data.user" to="/order-create" class="button is-primary">Оформить заказ</router-link>
+            <div v-if="$root.$data.user" class="level-right">
+                <router-link to="/order/create" class="button is-primary">Оформить заказ</router-link>
+            </div>
+            <div v-else class="level-right">
+                <router-link to="/login" class="button is-primary">Войдите чтобы оформить заказ</router-link>
             </div>
         </div>
         <div class="columns is-multiline">

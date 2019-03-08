@@ -5,6 +5,8 @@ import Login from './components/Login'
 import Logout from './components/Logout'
 import Register from './components/Register'
 import Profile from './components/Profile'
+import Orders from './components/Orders'
+import CreateOrder from './components/CreateOrder'
 
 
 const getToken = () => localStorage.getItem('user');
@@ -33,11 +35,15 @@ const routes = [{
         path: '/cart',
         component: Cart
     },
-    // {
-    //     path: '/order-create',
-    //     component: CreateOrder,
-    //     beforeEnter: ifAuthenticated,
-    // },
+    {
+        path: '/orders',
+        component: Orders
+    },
+    {
+        path: '/order/create',
+        component: CreateOrder,
+        beforeEnter: ifAuthenticated,
+    },
     {
         path: '/about',
         component: About,

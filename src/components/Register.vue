@@ -86,7 +86,6 @@ export default {
     name: 'Register',
     data() {
         return {
-            auth: 'https://dev.cyxapic.ru/auth/',
             title: 'Регистрация:',
             username: '',
             email:'',
@@ -101,7 +100,7 @@ export default {
     },
     methods:{
         register() {
-            fetch(`${this.auth}registration/`, {
+            fetch(`${this.$auth}registration/`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"

@@ -60,7 +60,7 @@
 export default {
     name: 'Products',
     created() {
-            fetch(`${this.api}categories/`).then(
+            fetch(`${this.$api}categories/`).then(
                 resp => resp.json().then(data => {
                     for (let item of data) {
                         this.categories.push(item);
@@ -68,7 +68,7 @@ export default {
                     this.filteredCategories = this.categories;
                 })
             );
-            fetch(`${this.api}products/`).then(
+            fetch(`${this.$api}products/`).then(
                 resp => resp.json().then(data => {
                     for (let item of data) {
                         this.products.push(item);
@@ -84,7 +84,6 @@ export default {
         },
         data() {
             return {
-                api: 'https://dev.cyxapic.ru/api/v1/',
                 title: 'Добавте товары желаемые товары в корзину:',
                 categories: [],
                 filteredCategories: [],

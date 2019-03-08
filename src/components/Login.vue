@@ -57,7 +57,6 @@ export default {
     name: 'Login',
     data() {
         return {
-            auth: 'https://dev.cyxapic.ru/auth/',
             title: 'Вход:',
             userName: '',
             password: '',
@@ -74,7 +73,7 @@ export default {
         },
         login() {
             if (!this.validate()){return}
-            fetch(`${this.auth}login/`, {
+            fetch(`${this.$auth}login/`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json"
