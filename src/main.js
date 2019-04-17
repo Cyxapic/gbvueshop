@@ -11,11 +11,8 @@ library.add(faSearch, faCodeBranch, faPen);
 Vue.component('fa-icon', FontAwesomeIcon);
 Vue.use(VueRouter);
 Vue.config.productionTip = false;
-// Vue.prototype.$api = 'https://dev.cyxapic.ru/api/v1/';
-// Vue.prototype.$auth = 'https://dev.cyxapic.ru/auth/';
-
-Vue.prototype.$api = 'http://127.0.0.1:8000/api/v1/';
-Vue.prototype.$auth = 'http://127.0.0.1:8000/auth/';
+Vue.prototype.$api = process.env.VUE_APP_API_URL;
+Vue.prototype.$auth = process.env.VUE_APP_AUTH_URL;
 
 const router = new VueRouter({routes});
 
